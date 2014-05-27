@@ -49,7 +49,8 @@ class eclipse::install::download (
     ensure   => $ensure,
     url      => $url,
     target   => $eclipse::params::target_dir,
-    root_dir => 'eclipse'
+    root_dir => 'eclipse',
+    timeout  => 0,
   }
 
   file { '/usr/share/applications/opt-eclipse.desktop':
