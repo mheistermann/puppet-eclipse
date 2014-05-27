@@ -8,18 +8,17 @@
 #
 class eclipse::plugin::ansi_console (
   $method = 'package',
+  $repository = 'http://www.mihai-nita.net/eclipse',
   $ensure = present
 ) {
 
   include eclipse
   include eclipse::params
-  include eclipse::plugin::pdt
+
 
   eclipse::plugin { 'ansi-console':
     iu         => 'net.mihai-nita.ansicon.feature.group',
     method     => $method,
-    repository => $eclipse::plugin::pdt::repository,
-    require    => Eclipse::Plugin['pdt-extensions']
+    repository => $repository,
   }
-
 }
